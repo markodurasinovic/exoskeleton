@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo-512.png" alt="exoskeleton: a developer in an exoskeleton suit at a keyboard, inside a circuit ring" width="180">
+  <img src="assets/logo-512.png" alt="exoskeleton: a developer in an exoskeleton suit at a keyboard, inside a circuit ring">
 </p>
 
 <h1 align="center">exoskeleton</h1>
