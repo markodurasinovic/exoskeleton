@@ -1,6 +1,6 @@
 # Enforce pace in the host, with two independent limits
 
-Exo enforces a time-triggered cadence limit (default five minutes) and progress-based dead-end rules in the host process, never by asking the model to stop on its own. Cadence answers "has the human been offered a decision recently"; dead ends answer "is the work advancing". Collapsing them into one timer turns a single long loop into twelve short ones, and letting the model self-report either condition turns a guarantee into a hope.
+Exo enforces a time-triggered cadence limit (default five minutes) and progress-based dead-end rules in the host process, in the process that runs the agent, never by asking the model to stop on its own. Cadence answers "has the human been offered a decision recently"; dead ends answer "is the work advancing". Collapsing them into one timer turns a single long loop into twelve short ones, and letting the model self-report either condition turns a guarantee into a hope.
 
 **Status**: accepted
 

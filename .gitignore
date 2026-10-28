@@ -1,5 +1,6 @@
 node_modules/
 dist/
-.exo/
+.exo/*
+!.exo/guards.json
 *.log
 .DS_Store

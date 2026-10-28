@@ -2,7 +2,7 @@
 
 Every handback that asks the human to decide presents the options, Exo's recommendation, and its reason, before the human chooses. The human is an experienced developer expected to push back; withholding the recommendation to protect against anchoring trades a real cost — slower, more anxious decisions — for a benefit that only applies to someone who cannot yet judge, and it makes the harness feel evasive.
 
-**Status**: accepted
+**Status**: superseded by ADR-0008
 
 **Consequences**: a bare "I recommend X" invites compliance, so a recommendation is always shown against its alternatives and with its reason. The learning signal moves from first-principles judgement to **divergence**: an accepted recommendation teaches nothing, so the record of overrides and their outcomes becomes the core learning artifact rather than a nice-to-have.
 

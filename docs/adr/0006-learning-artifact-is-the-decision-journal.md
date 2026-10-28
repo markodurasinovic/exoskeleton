@@ -2,7 +2,7 @@
 
 Exo records every decision — the options offered, its recommendation and reason, the human's choice, and the outcome once observable — and produces a retrospective from that record on request. Briefs and transcripts are evidence *for* a decision, not the learning artifact: they record what happened, while the journal records what the human judged and whether that judgement held.
 
-**Status**: accepted
+**Status**: superseded by ADR-0008
 
 **Consequences**: handbacks must offer enumerated choices, since a decision that cannot be named cannot be reviewed; free-text chat is not a sufficient decision surface. An accepted recommendation is recorded as acceptance, not as engagement, so the review can tell the two apart. Learning categories are derived from the record after the fact, never tagged in flow.
 

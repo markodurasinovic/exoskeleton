@@ -1,0 +1,16 @@
+{
+  "writeSet": [
+    "src",
+    "test",
+    "docs",
+    "package.json",
+    "tsconfig.json",
+    "README.md",
+    "GLOSSARY.md",
+    "AGENTS.md"
+  ],
+  "cadenceMs": 300000,
+  "stepBudget": 60,
+  "maxRepeatFailures": 2,
+  "maxRepeatedCalls": 4
+}

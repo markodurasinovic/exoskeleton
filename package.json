@@ -2,7 +2,7 @@
   "name": "exoskeleton",
   "version": "0.0.0",
   "private": true,
-  "description": "A coding harness that keeps the human in the loop.",
+  "description": "pi, with guards.",
   "type": "module",
   "bin": {
     "exo": "./src/cli.ts"
@@ -12,12 +12,14 @@
   },
   "scripts": {
     "test": "vitest --run",
-    "typecheck": "tsc --noEmit",
-    "demo": "node src/cli.ts demo"
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
     "typescript": "^5.9.0",
     "vitest": "^3.2.0"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "1.4.0"
   }
 }
