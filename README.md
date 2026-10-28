@@ -1,6 +1,10 @@
-# exoskeleton
+<p align="center">
+  <img src="assets/logo-512.png" alt="exoskeleton: a developer in an exoskeleton suit at a keyboard, inside a circuit ring" width="180">
+</p>
 
-pi, with guards.
+<h1 align="center">exoskeleton</h1>
+
+<p align="center"><strong>pi, with guards.</strong></p>
 
 `exo` **is** pi — same agent, same interface, same editor, same `/model`, same sessions. One extension is loaded on top: it stops a run that has stopped being useful, blocks the actions you always want to do yourself, and tells you exactly what it saw.
 

@@ -27,6 +27,7 @@
   },
   "files": [
     "dist",
+    "assets",
     "THIRD_PARTY_NOTICES.md",
     "GLOSSARY.md",
     "docs/adr"
