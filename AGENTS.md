@@ -5,12 +5,16 @@
 ## Commands
 
 ```bash
-npm test          # vitest, 45 tests
+npm install       # installs dependencies and builds dist/
+npm run build     # tsc -p tsconfig.build.json -> dist/
+npm test          # vitest, 57 tests
 npm run typecheck # tsc --noEmit
 exo               # develop this repo with the guards active
 ```
 
-There is no build step: Node runs the TypeScript directly, and `src/cli.ts` is the `exo` binary.
+`dist/` is generated and is what the installed `exo` runs. Never edit it. In development `node src/cli.ts` runs the TypeScript directly, and the launcher picks `guards.ts` or `guards.js` to match its own extension.
+
+Node refuses to strip types under `node_modules`, so `bin` points at `dist/cli.js`, not `src/cli.ts`. That is why there is a build step at all.
 
 ## Shape
 
@@ -19,7 +23,8 @@ There is no build step: Node runs the TypeScript directly, and `src/cli.ts` is t
 | `src/policy.ts` | the rules: `RunTracker`, `gateFor`, `GIT_WRITE`, `withinWriteSet` | know anything about pi |
 | `src/guards.ts` | the pi extension: subscribes to events, blocks, aborts, reports | contain a rule that belongs in policy |
 | `src/ledger.ts` | the record of guard events and the human's next instruction | drive behaviour |
-| `src/cli.ts` | spawning `pi -e <repo>/src/guards.ts` and forwarding argv | import pi's JavaScript |
+| `src/cli.ts` | spawning `pi -e <repo>/src/guards.ts` and forwarding argv; `exo init` | import pi's JavaScript |
+| `src/init.ts` | writing `.exo/guards.json` and the gitignore block | decide policy at runtime |
 
 The split matters: `policy.ts` is pure and testable without pi; `guards.ts` is the only file that imports the pi API.
 
@@ -63,6 +68,7 @@ Working and verified against the real agent:
 - dead end (same command fails twice with no file change), stall (same call repeated 4×), step budget, cadence
 - the budget in pi's status line (`guarded 3:12/5:00 · 41/60`), so a stop is never a surprise
 - stop reports with evidence, `/exo`, `/exo extend [minutes]`, `/exo allow <class>`, `/exo ledger`
+- `exo init` writing a config with an inferred write-set, without clobbering an existing one
 - cadence verified live with `cadenceMs: 12000`; dead end verified live with `false` twice
 
 Known gaps, in the order they are worth fixing:

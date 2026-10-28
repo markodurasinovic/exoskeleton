@@ -5,12 +5,15 @@
   "description": "pi, with guards.",
   "type": "module",
   "bin": {
-    "exo": "./src/cli.ts"
+    "exo": "./dist/cli.js"
   },
   "engines": {
     "node": ">=24"
   },
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
     "test": "vitest --run",
     "typecheck": "tsc --noEmit"
   },
@@ -21,5 +24,11 @@
   },
   "dependencies": {
     "@earendil-works/pi-coding-agent": "1.4.0"
-  }
+  },
+  "files": [
+    "dist",
+    "THIRD_PARTY_NOTICES.md",
+    "GLOSSARY.md",
+    "docs/adr"
+  ]
 }

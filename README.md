@@ -6,6 +6,60 @@ pi, with guards.
 
 There is no separate app, no mission wizard, no plan approval. If you know pi, you know `exo`.
 
+## Install
+
+exo isn't on npm yet. Pick by what the machine can reach.
+
+**From a checkout** — best if you'll edit exo:
+
+```bash
+git clone <repo> ~/dev/exoskeleton
+cd ~/dev/exoskeleton
+npm install        # installs dependencies and builds dist/
+npm link           # puts exo on your PATH
+```
+
+If `npm link` wants root, give npm a user-owned prefix first:
+
+```bash
+npm config set prefix ~/.npm-global
+export PATH="$HOME/.npm-global/bin:$PATH"
+npm link
+```
+
+**From a tarball** — no repo access needed on the target machine:
+
+```bash
+# on the machine with the checkout
+npm pack
+# on the work laptop
+npm i -g ./exoskeleton-0.0.0.tgz
+```
+
+**From git** — needs repository access and dev dependencies:
+
+```bash
+npm i -g git+ssh://git@github.com/<you>/exoskeleton.git
+```
+
+npm runs the package's `prepare` script, which builds it.
+
+Node 24 or newer is required. Node will not run TypeScript from inside `node_modules`, which is why exo ships compiled JavaScript in `dist/`.
+
+## First run in a repo
+
+```bash
+cd <repo>
+exo init      # writes .exo/guards.json and the gitignore rules
+exo
+```
+
+`exo init` infers a starting write-set from what is actually there — `src`, `lib`, `app`, `packages`, `test`, `tests`, `docs`, `scripts`, plus `package.json`, `README.md`, `AGENTS.md`, `tsconfig.json` — and writes it with the default policy. It refuses to overwrite an existing config unless you pass `--force`, and `--write-set a,b` sets the paths explicitly. The config is tracked in git; the ledger is not.
+
+## Credentials
+
+exo runs its own pi, but pi reads `~/.pi/agent` — the same `auth.json` and settings a normal pi install uses. The first `exo` offers pi's login flow; API keys in the environment work too.
+
 ## Requirements
 
 Node 24 or newer. `pi` comes with exo.

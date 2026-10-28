@@ -4,3 +4,4 @@ dist/
 !.exo/guards.json
 *.log
 .DS_Store
+*.tgz
